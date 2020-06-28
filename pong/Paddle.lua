@@ -20,3 +20,35 @@ end
 function Paddle:render()
     love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
 end
+
+function Paddle:getDx()
+    return self.dx
+end
+
+function Paddle:getDy()
+    return self.dy
+end
+
+function Paddle:getX()
+    return self.x
+end
+
+function Paddle:getY()
+    return self.y
+end
+
+function Paddle:setDx(dx)
+    self.dx = dx
+end
+
+function Paddle:setDy(dy)
+    self.dy = dy
+end
+
+function Paddle:setX(x)
+    self.x = x
+end
+
+function Paddle:setY(y)
+    self.y = y
+end
