@@ -16,7 +16,7 @@ PADDLE_SPEED = 200
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
 
-    love.graphics.setTitle('Pong')
+    love.window.setTitle('Pong')
 
     math.randomseed(os.time())
    
@@ -53,18 +53,18 @@ end
 -- Called each frame by LOVE; dt will be elapsed time in seconds since the last frame
 function love.update(dt)
     -- player 1 movement
-    if love.keypressed.isDown('w') then
+    if love.keyboard.isDown('w') then
     
     end
-    if love.keypressed.isDown('s') then
+    if love.keyboard.isDown('s') then
     
     end
 
     -- player 2 movement
-    if love.keypressed.isDown('up') then
+    if love.keyboard.isDown('up') then
     
     end
-    if love.keypressed.isDown('down') then
+    if love.keyboard.isDown('down') then
     
     end
 
@@ -83,13 +83,12 @@ function love.draw()
         VIRTUAL_WIDTH,
         'center')
     
-    -- Paddles 
-    love.graphics.rectangle('fill', 10, 30, 5, 20)
-    love.graphics.rectangle('fill', VIRTUAL_WIDTH - 10, VIRTUAL_HEIGHT - 50, 5, 20)
-    
-    -- Ball
-    love.graphics.rectangle('fill', VIRTUAL_WIDTH / 2 - 2, VIRTUAL_HEIGHT / 2 - 2, 4, 4)
+    player1:render()
+    player2:render()
+    ball:render()
 
+    displayFPS()
+    
     push:apply('end')
 end
 
