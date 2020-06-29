@@ -53,15 +53,13 @@ end
 function love.update(dt)
     pong:updateBallPositionAndMovement()
    
-    -- player 1 movement
-    if love.keyboard.isDown('w') then
-        pong:getPlayer1():setDy(-PADDLE_SPEED)
-    elseif love.keyboard.isDown('s') then
-        pong:getPlayer1():setDy(PADDLE_SPEED)
+    -- player 1 movement: automated
+    pong:getPlayer1():setY(pong:getBall():getY()-8)
+    if pong:getGameState() == 'play' then
+        pong:getPlayer1():setDy(pong:getBall():getDy())
     else
         pong:getPlayer1():setDy(0)
     end
-
     -- player 2 movement
     if love.keyboard.isDown('up') then
         pong:getPlayer2():setDy(-PADDLE_SPEED)
